@@ -403,7 +403,7 @@ def has_local_mods(module, git_path, dest, bare):
     if bare:
         return False
 
-    cmd = "%s status --porcelain -uno" % (git_path)
+    cmd = "%s status --porcelain --untracked-files=no" % (git_path)
     rc, stdout, stderr = module.run_command(cmd, cwd=dest)
     return len(stdout) > 0
 
